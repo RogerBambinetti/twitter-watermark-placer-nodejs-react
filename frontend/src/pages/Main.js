@@ -4,6 +4,7 @@ import './Main.css';
 
 import api from '../services/api';
 
+
 export default function App({ history }) {
 
   const [screen_name, setScreen_name] = useState('');
@@ -23,7 +24,6 @@ export default function App({ history }) {
         </div>
       }
       <div className="main-container">
-        <img src={Logo} alt="logo" id="logo" />
         <h4>Generate a custom profile picture</h4>
         <h5>Enter your twitter username</h5>
         <div class="form">
