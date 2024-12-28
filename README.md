@@ -6,7 +6,7 @@
 </h1>
 
 <h3 align="center">
-	Twitter Watermark Placer - NodeJS - ReactJS
+	Twitter Watermark Placer - NodeJS - React
 </h3>
 
 <p align="center">
