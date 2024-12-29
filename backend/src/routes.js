@@ -14,10 +14,10 @@ routes.get('/requestImage', async (req, res) => {
         var { profile_image_url } = response;
         profile_image_url = profile_image_url.replace('normal', '400x400');
         imageProcessing(screen_name, profile_image_url).then(
-            setTimeout(() => res.json({link:`https://letslove-server.herokuapp.com/outputs/${screen_name}.jpg`}), 3000)
+            setTimeout(() => res.json({ link: `https://letslove-server.herokuapp.com/outputs/${screen_name}.jpg` }), 3000)
         );
-}
-).catch(console.error);
+    }
+    ).catch(console.error);
 
 });
 
