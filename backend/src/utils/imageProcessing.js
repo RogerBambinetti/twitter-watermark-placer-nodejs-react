@@ -18,7 +18,7 @@ async function addWatermarkToImage(screen_name, profile_image_url) {
         const fileName = `${screen_name}.jpg`;
         await image.write(`./src/outputs/${fileName}`);
 
-        return fileName;
+        return `${process.env.HTTP_SERVER_URL}/outputs/${fileName}`;
     } catch (error) {
         console.error('Error adding watermark:', error);
     }
