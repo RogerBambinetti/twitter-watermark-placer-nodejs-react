@@ -2,7 +2,7 @@ const Jimp = require('jimp');
 
 const watermark = new Jimp('./src/assets/watermark.png');
 
-module.exports = async function imageProcessing(screen_name, profile_image_url) {
+async function addWatermarkToImage(screen_name, profile_image_url) {
     Jimp.read(profile_image_url)
         .then(lenna => {
             return lenna
@@ -20,3 +20,5 @@ module.exports = async function imageProcessing(screen_name, profile_image_url) 
             console.error(err);
         });
 }
+
+module.exports = { addWatermarkToImage };
