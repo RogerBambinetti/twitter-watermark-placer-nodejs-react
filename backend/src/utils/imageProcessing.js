@@ -15,10 +15,10 @@ async function addWatermarkToImage(screen_name, profile_image_url) {
                 opacityDest: 0.9
             });
 
-        const outputUrl = `./src/outputs/${screen_name}.jpg`;
-        await image.write(outputUrl);
+        const fileName = `${screen_name}.jpg`;
+        await image.write(`./src/outputs/${fileName}`);
 
-        return outputUrl;
+        return fileName;
     } catch (error) {
         console.error('Error adding watermark:', error);
     }
