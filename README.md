@@ -10,7 +10,7 @@ App for placing watermarks onto Twitter (X) profile pictures
 
 Before you begin, ensure you have met the following requirements:
 
-- **Node.js**: v14.x
+- **Node.js**: v18.x
 - **NPM**: Usually installed with Node.js
 
 > ⚠️ **Note**: Using other versions may cause incompatibilities.
