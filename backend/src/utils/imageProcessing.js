@@ -1,24 +1,28 @@
-const Jimp = require('jimp');
-
-const watermark = new Jimp('./src/assets/watermark.png');
+const { Jimp } = require('jimp');
 
 async function addWatermarkToImage(screen_name, profile_image_url) {
-    Jimp.read(profile_image_url)
-        .then(lenna => {
-            return lenna
-                .cover(720, 720)
-                .quality(100)
-                .greyscale()
-                .composite(watermark, 0, 0, {
-                    mode: Jimp.BLEND_SOURCE_OVER,
-                    opacitySource: 1,
-                    opacityDest: 0.9
-                })
-                .writeAsync(`./src/outputs/${screen_name}.jpg`);
-        })
-        .catch(err => {
-            console.error(err);
-        });
+    try {
+        console.log('Adding watermark for user', screen_name);
+
+        const watermark = await Jimp.read('./src/assets/watermark.png');
+        const image = await Jimp.read(profile_image_url);
+
+        image.cover({ w: 720, h: 720 })
+            .greyscale()
+            .composite(watermark, 0, 0, {
+                mode: Jimp.BLEND_SOURCE_OVER,
+                opacitySource: 1,
+                opacityDest: 0.9
+            });
+
+        const outputUrl = `./src/outputs/${screen_name}.jpg`;
+        await image.write(outputUrl);
+
+        return outputUrl;
+    } catch (error) {
+        console.error('Error adding watermark:', error);
+    }
+
 }
 
 module.exports = { addWatermarkToImage };
